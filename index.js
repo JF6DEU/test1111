@@ -3,7 +3,7 @@ const Handlebars = require("handlebars");
 const file = require("fs");
 const AbortController = require('abort-controller');
 const { execSync } = require("child_process");
-const ytdlpPath = "yt-dlp.exe";
+const ytdlpPath = "yt-dlp";
 
 const invidiousjson = "https://api.invidious.io/instances.json?pretty=1&sort_by=type,users";
 let apis = ["https://invidious.private.coffee/","https://invidious.protokolla.fi/",
