@@ -140,7 +140,7 @@ const server = http.createServer(async (request, response) => {
                     } catch(e) {
                         getresult = {};
                     }
-                    message = returnTemplate("./templates/watch.html", {formats: outform)});
+                    message = returnTemplate("./templates/watch.html", {formats: outform});
                 }
                 break;
                 case "/geturls":
