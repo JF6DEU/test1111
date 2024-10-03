@@ -1,0 +1,19 @@
+{
+  "name": "nodeyuki",
+  "version": "1.0.0",
+  "description": "Yuki YouTube with Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./index.js"
+  },
+  "keywords": [
+    "YouTube"
+  ],
+  "author": "JF6DEU",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "handlebars": "^4.7.8",
+    "http": "^0.0.1-security"
+  }
+}
