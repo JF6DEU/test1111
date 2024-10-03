@@ -116,7 +116,7 @@ const server = http.createServer(async (request, response) => {
                 }
                 break;
             case "/watch":
-                let outform;
+                let outform = {};
                 fetch("https://github.com/JF6DEU/test1111/raw/refs/heads/main/proxy.json")
                 .then(r => r.json())
                 .then((d) => {
