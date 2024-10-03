@@ -136,7 +136,7 @@ const server = http.createServer(async (request, response) => {
                     let getresult;
                     try{
                         getresult = execSync(ytdlpPath+" --proxy '"+proxy+"' --dump-json https://youtu.be/"+v).toString();
-                        outform = JSON.stringify(JSON.parse(getresult).formats;
+                        outform = JSON.stringify(JSON.parse(getresult).formats);
                     } catch(e) {
                         getresult = {};
                     }
