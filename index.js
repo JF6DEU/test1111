@@ -121,7 +121,7 @@ const server = http.createServer(async (request, response) => {
                     let v = urls.searchParams.get("v").replace(".", "").replace("/", "").replace("&", "").replace("?", "").replace("|", "").replace("(", "").replace(")", "");
                     let getresult;
                     try{
-                        getresult = execSync(ytdlpPath+" --proxy 'http://vpn:vpn@public-vpn-81.opengw.net' --dump-json https://youtu.be/"+v).toString();
+                        getresult = execSync(ytdlpPath+" --proxy 'socks4://88.210.37.186:40064' --dump-json https://youtu.be/"+v).toString();
                     } catch(e) {
                         getresult = {};
                     }
