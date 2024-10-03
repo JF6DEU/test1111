@@ -27,6 +27,13 @@ let apis = ["https://invidious.private.coffee/","https://invidious.protokolla.fi
         });
     })
     .catch((e) => {console.error(e)});
+    let proxy = "socks4://88.210.37.186:40064";
+    fetch("https://github.com/JF6DEU/test1111/raw/refs/heads/main/proxy.json")
+    .then(r => r.json())
+    .then((d) => {
+        proxy = d.proxy;
+    })
+    .catch((e) => {console.error(e)});
 
 const server = http.createServer(async (request, response) => {
     let message;
@@ -121,7 +128,7 @@ const server = http.createServer(async (request, response) => {
                     let v = urls.searchParams.get("v").replace(".", "").replace("/", "").replace("&", "").replace("?", "").replace("|", "").replace("(", "").replace(")", "");
                     let getresult;
                     try{
-                        getresult = execSync(ytdlpPath+" --proxy 'socks4://88.210.37.186:40064' --dump-json https://youtu.be/"+v).toString();
+                        getresult = execSync(ytdlpPath+" --proxy '"+proxy+"' --dump-json https://youtu.be/"+v).toString();
                     } catch(e) {
                         getresult = {};
                     }
