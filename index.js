@@ -28,14 +28,10 @@ let apis = ["https://invidious.private.coffee/","https://invidious.protokolla.fi
     })
     .catch((e) => {console.error(e)});
     let proxy = "socks4://88.210.37.186:40064";
-    let poToken = "";
-    let visitorData = "";
     fetch("https://github.com/JF6DEU/test1111/raw/refs/heads/main/proxy.json")
     .then(r => r.json())
     .then((d) => {
         proxy = d.proxy;
-        visitorData = d.visitor_data;
-        poToken = d.po_token;
     })
     .catch((e) => {console.error(e)});
 
@@ -125,8 +121,6 @@ const server = http.createServer(async (request, response) => {
                 .then(r => r.json())
                 .then((d) => {
                     proxy = d.proxy;
-                    visitorData = d.visitor_data;
-                    poToken = d.po_token;
                 })
                 .catch((e) => {console.error(e)});
                 if (urls.searchParams.get("v") == null || urls.searchParams.get("v").length >= 50){
@@ -141,7 +135,7 @@ const server = http.createServer(async (request, response) => {
                     let v = urls.searchParams.get("v").replace(".", "").replace("/", "").replace("&", "").replace("?", "").replace("|", "").replace("(", "").replace(")", "");
                     let getresult;
                     try{
-                        getresult = execSync(ytdlpPath+" --proxy '"+proxy+'\' --extractor-args "youtube:player-client=web,default;player-skip=webpage,configs;po_token=web+'+poToken+';visitor_data='+visitorData+'" --dump-json https://youtu.be/'+v).toString();
+                        getresult = execSync(ytdlpPath+" --proxy '"+proxy+'\' --dump-json https://youtu.be/'+v).toString();
                         outform = JSON.stringify(JSON.parse(getresult).formats);
                     } catch(e) {
                         getresult = {};
